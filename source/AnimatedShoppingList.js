@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class AnimatedShoppingList extends React.Component {
   constructor () {
@@ -40,7 +41,13 @@ export default class AnimatedShoppingList extends React.Component {
 
     return (
       <div>
-        { shoppingItems }
+        <ReactCSSTransitionGroup transitionName='example'
+                                 transitionEnterTimeout={ 300 }
+                                 transitionEnterTimeout={ 300 }
+                                 transitionAppear={ true }
+                                 transitionAppearTimeout={ 300 }>
+          { shoppingItems }
+        </ReactCSSTransitionGroup>
         <input type='text' value={ this.state.newItem }
                onKeyDown={ this.handleChange.bind(this) } />
       </div>
